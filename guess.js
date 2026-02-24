@@ -3,6 +3,7 @@
 // global variables 
 let randomNum = 0;
 let tries = 0;
+let bestScore = 1000000;
 
 // helper function
 const getRandomInt = (max = 100) => {
@@ -14,24 +15,61 @@ const getRandomInt = (max = 100) => {
 // event handler functions
 const guessClick = () => {
     const guess = parseInt(document.querySelector("#number").value);
+    const messageLabel = document.querySelector("#message").value;
+
 
     let message = "";
-    if (isNaN(guess)) {
-        message = "Not a valid number. Please enter a valid number."
-    } else if (guess < 1 || guess > 10) {
-        message = "Invalid number. Enter a number between 1 and 10.";
-    } else if (guess < randomNum) {
-        message = "Too small. Try again.";
-        tries++;
-    } else if (guess > randomNum) {
-        message = "Too big. Try again.";
-        tries++;
-    } else if (guess === randomNum) {
-        tries++;
-        const lastWord = (tries === 1) ? "try" : "tries";
-        message = `You guessed it in ${tries} ${lastWord}!`;
+    let color = "black";
+
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+        messageLabel.textContent = "Please enter a number between 1 and 100.";
+        messageLabel.style.color = "red";
+        return;
     }
-    document.querySelector("#message").textContent = message;
+
+    tires++;
+    const distance = Math.abs(guess - randomNum);
+
+
+
+    switch (true){
+
+        case (distance === 0):
+            const lastWord = (tries === 1) ? "Try" : "Tries";
+            message = `Perfect! You got it in ${tries} ${lastWord}!`;
+            color = "green";
+            updateBestScore();
+            break;
+        case (distance <= 5):
+            message = "Hot (Within 5)"
+            color = "red"
+            break;
+        case (distance <=10):
+            message = "Warmer (Within 10)"
+            color = "orange-red"
+            break;
+        case (distance <=20):
+            message = "Warm (Within 20)"
+            color = "Orange"
+            break;
+        case (distance <= 30):
+            message = "Cold"
+            color = "lightblue"
+            break;
+        case (distance <= 40 ):
+            message = "Colder"
+            color = "blue"
+            break;
+        case (distance >= 40 ):
+            message = "Freezing"
+            color = "Dark-blue"
+            break;
+
+    }
+
+    messagelabel.style.color = color;
+    messageLabel.textContent = message;
+
 };
 
 const playAgainClick = () => {

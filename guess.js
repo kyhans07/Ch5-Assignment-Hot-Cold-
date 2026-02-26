@@ -97,4 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "click", guessClick);
     document.querySelector("#play_again").addEventListener(
         "click", playAgainClick);
+
+    const numberInput = document.querySelector("#number");
+    //checks what key is clicked ( enter in this case)
+    numberInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            guessClick();
+        }
+    });
+
+
 });

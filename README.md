@@ -26,6 +26,12 @@ Plain text output:
 > Case: distance <= 10 (True)
 > Result: "Warmer" | Color: "orangered"
 
+<img width="870" height="640" alt="image" src="https://github.com/user-attachments/assets/23e02ce0-a377-4bcd-8077-07df162399a7" />
+<img width="920" height="796" alt="image" src="https://github.com/user-attachments/assets/ab74194a-a028-4bbe-b9ba-db228d21454e" />
+
+
+
+
 🛠️ Key Technical Concepts
 This project implements several intermediate JavaScript and DOM manipulation concepts:
 
@@ -38,6 +44,16 @@ Template Literals: Used backticks (`) to dynamically inject variables into strin
 State Management: Global variables track tries, randomNum, and bestScore across multiple rounds.
 
 Input UX: Utilized .focus() and .select() to ensure the user can type consecutive guesses without using a mouse.
+
+
+
+
+
+
+
+
+
+
 
 👤 Author
 Kyler Hanson 

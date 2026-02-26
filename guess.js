@@ -1,3 +1,13 @@
+
+// Kyler Hanson
+// Hot N Cold game
+// Number guessing game that indicates distance with colored text
+// 2-24-2026
+// https://github.com/kyhans07
+
+
+
+
 "use strict";
 
 // global variables 

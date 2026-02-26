@@ -8,14 +8,13 @@ let bestScore = 1000000;
 // helper function
 const getRandomInt = (max = 100) => {
     let num = Math.random() * max;  // get a random number between 0 and max
-    num = Math.ceil(num);           // round up to nearest integer
-    return num;
+    return Math.ceil(num);
 };
 
 // event handler functions
 const guessClick = () => {
     const guess = parseInt(document.querySelector("#number").value);
-    const messageLabel = document.querySelector("#message").value;
+    const messageLabel = document.querySelector("#message");
 
 
     let message = "";
@@ -27,7 +26,7 @@ const guessClick = () => {
         return;
     }
 
-    tires++;
+    tries++;
     const distance = Math.abs(guess - randomNum);
 
 
@@ -67,16 +66,28 @@ const guessClick = () => {
 
     }
 
-    messagelabel.style.color = color;
+    messageLabel.style.color = color;
     messageLabel.textContent = message;
 
 };
 
 const playAgainClick = () => {
-    randomNum = getRandomInt(10);
+    randomNum = getRandomInt(100);
     tries = 0;
     document.querySelector("#number").value = "";
     document.querySelector("#message").textContent = "";
+};
+
+const updateBestScore = () => {
+    const bestScoreSpan = document.querySelector("#best_score");
+
+    if (bestScore === 0 || tries < bestScore) {
+        bestScore = tries;
+
+        if (bestScoreSpan) {
+            bestScoreSpan.textContent = bestScore;
+        }
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {

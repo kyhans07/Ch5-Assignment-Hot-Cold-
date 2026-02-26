@@ -13,8 +13,10 @@ const getRandomInt = (max = 100) => {
 
 // event handler functions
 const guessClick = () => {
+    const guessInput = document.querySelector("#number");
     const guess = parseInt(document.querySelector("#number").value);
     const messageLabel = document.querySelector("#message");
+    const history = document.querySelector("#history");
 
 
     let message = "";
@@ -68,6 +70,13 @@ const guessClick = () => {
 
     messageLabel.style.color = color;
     messageLabel.textContent = message;
+
+    if (history) {
+        history.innerHTML += `Guess ${tries}: ${guess} - ${message}<br>`;
+    }
+
+    guessInput.focus();
+    guessInput.select();
 
 };
 

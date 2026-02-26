@@ -47,7 +47,7 @@ const guessClick = () => {
             break;
         case (distance <=10):
             message = "Warmer (Within 10)"
-            color = "orange-red"
+            color = "orangered"
             break;
         case (distance <=20):
             message = "Warm (Within 20)"
@@ -63,7 +63,7 @@ const guessClick = () => {
             break;
         case (distance >= 40 ):
             message = "Freezing"
-            color = "Dark-blue"
+            color = "darkblue"
             break;
 
     }
@@ -85,6 +85,13 @@ const playAgainClick = () => {
     tries = 0;
     document.querySelector("#number").value = "";
     document.querySelector("#message").textContent = "";
+
+    //clears history if play again is clicked
+    const history = document.querySelector("#history");
+    if (history) {
+        history.innerHTML = "";
+    }
+
 };
 
 const updateBestScore = () => {
